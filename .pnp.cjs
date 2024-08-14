@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:15.9.0"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:18.3.1"],\
+          ["uuid", "npm:10.0.0"],\
           ["vite", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:5.4.0"]\
         ],\
         "linkType": "SOFT"\
@@ -3984,6 +3985,7 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:15.9.0"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:18.3.1"],\
+          ["uuid", "npm:10.0.0"],\
           ["vite", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:5.4.0"]\
         ],\
         "linkType": "SOFT"\
@@ -4118,6 +4120,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["uri-js", "npm:4.4.1"],\
           ["punycode", "npm:2.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["uuid", [\
+      ["npm:10.0.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/uuid-npm-10.0.0-4872b46ff8-10c0.zip/node_modules/uuid/",\
+        "packageDependencies": [\
+          ["uuid", "npm:10.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\

@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:15.9.0"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:18.3.1"],\
+          ["react-icons", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:5.3.0"],\
           ["uuid", "npm:10.0.0"],\
           ["vite", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:5.4.0"]\
         ],\
@@ -3479,6 +3480,28 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-icons", [\
+      ["npm:5.3.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/react-icons-npm-5.3.0-3814684035-10c0.zip/node_modules/react-icons/",\
+        "packageDependencies": [\
+          ["react-icons", "npm:5.3.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:5.3.0", {\
+        "packageLocation": "./.yarn/__virtual__/react-icons-virtual-9dc14d1ec6/4/.yarn/berry/cache/react-icons-npm-5.3.0-3814684035-10c0.zip/node_modules/react-icons/",\
+        "packageDependencies": [\
+          ["react-icons", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:5.3.0"],\
+          ["@types/react", "npm:18.3.3"],\
+          ["react", "npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-is", [\
       ["npm:16.13.1", {\
         "packageLocation": "../../../.yarn/berry/cache/react-is-npm-16.13.1-a9b9382b4f-10c0.zip/node_modules/react-is/",\
@@ -3985,6 +4008,7 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:15.9.0"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:18.3.1"],\
+          ["react-icons", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:5.3.0"],\
           ["uuid", "npm:10.0.0"],\
           ["vite", "virtual:75f32c353cac515084884e28215e02bb5f94f8399fb4e2fee27f71f9d56d6c1c03b3196bab239a991ecdf73f1b21b3e8eeaea64f927a86e00a0ccaf0d43a8224#npm:5.4.0"]\
         ],\

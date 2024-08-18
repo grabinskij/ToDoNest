@@ -1,6 +1,9 @@
 # ToDONest
 A sleek and intuitive to-do app designed to help you organize tasks effortlessly. Keep all your to-dos in one place with ToDoNest, where productivity meets simplicity.
 
+# 🚧 Development Status
+
+**Note:** This project is currently in active development. Features, functionality, and design are subject to change. Contributions are welcome, but please be aware that the codebase is still evolving.
 
 # React + Vite
 

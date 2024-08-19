@@ -8,6 +8,7 @@ const TodoList = ({todos}) => {
         {!todos && <h2>Todo list is empty</h2>}
         {todos.map((todo) => (
             <Todo 
+                key={todo.id}
                 todo={todo}
             />
         ))}

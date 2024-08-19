@@ -1,0 +1,54 @@
+.todoContainer {
+    min-width: 300px;
+    max-width: 620px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    align-items: center;
+    gap: 5px;
+}
+
+.todoText {
+    width: 100%;
+    font-size: 14px;
+}
+
+.todoIcon,
+.todoCompleted,
+.todoEdit,
+.todoDelete {
+    width: 24px;
+    height: 24px;
+}
+
+.todoIcon{
+    color: green;
+}
+.todoCompleted{
+    color:blue;
+}
+.todoEdit{
+    color:rgb(211, 111, 30);
+}
+.todoDelete{
+    color: red;
+}
+
+
+.todoContainer.completedTodo {
+ border: 1px solid gray;
+}
+
+.completedTodo {
+    color: gray;
+    background: unset;
+}
+
+.todoContainer.completedTodo .todoIcon,
+.todoContainer.completedTodo .todoCompleted,
+.todoContainer.completedTodo .todoDelete,
+.todoContainer.completedTodo .todoEdit {
+    color: gray;
+}

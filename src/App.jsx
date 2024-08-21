@@ -19,12 +19,41 @@ const addTodoHandler = (text) => {
   setTodos(currentTodos => [...currentTodos, newTodo])
 }
 
+const deleteTodoHandler = (id) => {
+  setTodos(currentTodos => currentTodos.filter(todo => todo.id !== id))
+}
+
+const toggleTodoHandler = (id) => {
+  setTodos(currentTodos => (
+    currentTodos.map((todo) => (
+      todo.id === id
+      ? {...todo, isCompleted: !todo.isCompleted}
+      : {...todo}
+    ))
+  ))
+} 
+
+// const editTodoHandler = (updatedTodo) => {
+//   setTodos(currentTodos =>
+//     currentTodos.map(todo =>
+//           todo.id === updatedTodo.id
+//               ? { ...todo, text: updatedTodo.text, isEdited: false }
+//               : todo
+//       )
+//   )
+// }
+
     return (
         <div className='App'>
             <Header />
             <div className="container">
               <TodoForm onAddTodo={addTodoHandler}/>
-              <TodoList todos={todos}/>
+              <TodoList 
+                todos={todos}
+                onToggleTodo={toggleTodoHandler}
+                onEditTodo={editTodoHandler}
+                onDeleteTodo={deleteTodoHandler}
+                />
             </div>
         </div>
     )

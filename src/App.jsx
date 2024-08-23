@@ -33,21 +33,37 @@ const toggleTodoHandler = (id) => {
   ))
 } 
 
-// const editTodoHandler = (updatedTodo) => {
-//   setTodos(currentTodos =>
-//     currentTodos.map(todo =>
-//           todo.id === updatedTodo.id
-//               ? { ...todo, text: updatedTodo.text, isEdited: false }
-//               : todo
-//       )
-//   )
-// }
+
+const editTodoHandler = (id) => {
+  setTodos(currentTodos => (
+    currentTodos.map((todo) => (
+      todo.id === id
+      ? {...todo, isEdited: !todo.isEdited}
+      : {...todo}
+    ))
+  ))
+}
+
+
+const addEditTodoHandler = (updatedTodo) => {
+  setTodos(currentTodos =>
+    currentTodos.map(todo =>
+          todo.id === updatedTodo.id
+              ? { ...todo, text: updatedTodo.text, isEdited: false }
+              : todo
+      )
+  )
+}
 
     return (
         <div className='App'>
             <Header />
             <div className="container">
-              <TodoForm onAddTodo={addTodoHandler}/>
+              <TodoForm 
+                todos={todos}
+                onAddTodo={addTodoHandler}
+                onAddEditTodo={addEditTodoHandler} 
+              />
               <TodoList 
                 todos={todos}
                 onToggleTodo={toggleTodoHandler}

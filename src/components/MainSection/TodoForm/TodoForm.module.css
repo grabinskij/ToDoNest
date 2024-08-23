@@ -1,6 +1,7 @@
 .container {
     align-items: center;
     margin-bottom: 30px;
+    width: 100%;
 }
 .container form {
     display: flex;

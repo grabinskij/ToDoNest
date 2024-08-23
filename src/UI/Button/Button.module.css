@@ -1,6 +1,8 @@
 .button {
     margin-left: 20px;
     height: 50px;
+    min-width: 120px;
+    width: 100%;
     cursor: pointer;
     background-color: #58c371;
     font-size: 1.5rem;

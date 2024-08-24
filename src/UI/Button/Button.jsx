@@ -7,6 +7,7 @@ const {children, disabled = false} = props
 
   return (
     <button 
+        {...props}
         className={styles.button}
         disabled={disabled}
     >

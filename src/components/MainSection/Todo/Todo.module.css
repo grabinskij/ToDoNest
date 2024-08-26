@@ -12,7 +12,7 @@
 
 .todoText {
     width: 100%;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .todoIcon,
@@ -51,4 +51,8 @@
 .todoContainer.completedTodo .todoDelete,
 .todoContainer.completedTodo .todoEdit {
     color: gray;
+}
+
+.timestamp{
+    font-size: 12px;
 }

@@ -5,6 +5,7 @@ import styles from './Todo.module.css'
 const Todo = ({todo, onToggleTodo, onEditTodo, onDeleteTodo}) => {
   return (
     <div className={`${styles.todoContainer} ${todo.isCompleted ? styles.completedTodo : ''}`}>
+    <div className={styles.timestamp}>{todo.timestamp}</div>
     <RiTodoFill className={styles.todoIcon}/>
     <div className={styles.todoText}>{todo.text}</div>
     <RiCheckFill

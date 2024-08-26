@@ -5,13 +5,18 @@ import TodoForm from './components/MainSection/TodoForm/TodoForm'
 import TodoList from './components/MainSection/TodoList/TodoList'
 import {v4 as uuidv4} from 'uuid'
 import TodoActions from './components/MainSection/TodoActions/TodoActions'
+import formatDate from './utils/formatDate'
 
 function App() {
 
 const [todos, setTodos] = useState([])
 
+
 const addTodoHandler = (text) => {
+  const timestamp = formatDate(new Date());
+
   const newTodo = {
+    timestamp,
     text,
     isCompleted: false, 
     isEdited: false,

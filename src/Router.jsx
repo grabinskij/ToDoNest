@@ -2,9 +2,8 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Archive from './pages/Archive/Archive';
-import NavBar from './NavBar';
 
-const RouterComponent = (
+const Router = (
     {
         todos,
         onAddTodo,
@@ -16,7 +15,7 @@ const RouterComponent = (
         onEditTodo,
         onDeleteTodo,
         archive,
-        onMoveToArchive,
+        setArchive,
     }
 ) => {
     const router = createBrowserRouter([
@@ -35,8 +34,6 @@ const RouterComponent = (
                         completedTodos={completedTodos}
                         onToggleTodo={onToggleTodo}
                         onEditTodo={onEditTodo}
-                        onMoveToArchive={onMoveToArchive}
-                        archive={archive}
                     />
                 </>
             ),
@@ -48,7 +45,7 @@ const RouterComponent = (
                     {/*<NavBar />*/}
                     <Archive
                         archive={archive}
-                        onMoveToArchive={onMoveToArchive}
+                        setArchive={setArchive}
                     />
                 </>
             ),
@@ -58,4 +55,4 @@ const RouterComponent = (
     return <RouterProvider router={router} />;
 };
 
-export default RouterComponent;
+export default Router;

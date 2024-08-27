@@ -6,7 +6,7 @@ import {v4 as uuidv4} from 'uuid'
 const AppContainer = () => {
     const [todos, setTodos] = useState([]);
     const [archive, setArchive] = useState([]);
-
+console.log(archive)
     const addTodoHandler = (text) => {
         const timestamp = formatDate(new Date());
 
@@ -57,15 +57,15 @@ const AppContainer = () => {
     }
 
     const resetTodosHandler = () => {
-        if(confirm('Are your sure you want to delete all todos?')) {
-            const timestamp = new Date()
-            const archiveItems = todos.map( todo => (
-                {todo, timestamp, key: todo.id }
-            ))
-            setArchive([...archive, ...archiveItems])
-            setTodos([])
-        }
-    }
+            const timestamp = new Date();
+            const archiveItems = todos.map((todo) => ({
+                todo,
+                timestamp,
+                key: todo.id
+            }));
+            setArchive((prevArchive) => [...prevArchive, ...archiveItems]);
+            setTodos([]);
+    };
 
     const deleteCompletedTodosHandler = () => {
         setTodos(todos.filter((todo) => !todo.isCompleted))
@@ -85,7 +85,7 @@ const AppContainer = () => {
             onEditTodo={editTodoHandler}
             onDeleteTodo={deleteTodoHandler}
             archive={archive}
-            onMoveToArchive={setArchive}
+            setArchive={setArchive}
         />
     );
 };

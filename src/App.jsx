@@ -1,14 +1,22 @@
 import './App.css'
-import { useState } from 'react'
 import Header from './components/Header/Header'
 import TodoForm from './components/MainSection/TodoForm/TodoForm'
 import TodoList from './components/MainSection/TodoList/TodoList'
-
 import TodoActions from './components/MainSection/TodoActions/TodoActions'
-import formatDate from './utils/formatDate'
 
 
-function App({archive, setArchive, todos, setTodos}) {
+
+function App({
+  todos,
+  onAddTodo,
+  onDeleteTodo,
+  onAddEditTodo,
+  onResetTodos,
+  onDeleteCompletedTodos,
+  completedTodos,
+  onToggleTodo,
+  onEditTodo
+}) {
 
 
     return (
@@ -17,21 +25,21 @@ function App({archive, setArchive, todos, setTodos}) {
             <div className="container">
               <TodoForm 
                 todos={todos}
-                onAddTodo={addTodoHandler}
-                onAddEditTodo={addEditTodoHandler} 
+                onAddTodo={onAddTodo}
+                onAddEditTodo={onAddEditTodo} 
               />
                {!!todos.length && (
                 <TodoActions 
-                  onResetTodos={resetTodosHandler}
-                  onDeleteCompletedTodos={deleteCompletedTodosHandler}
-                  completedTodos={completedTodosHandler}
+                  onResetTodos={onResetTodos}
+                  onDeleteCompletedTodos={onDeleteCompletedTodos}
+                  completedTodos={completedTodos}
                 />
                )}
               <TodoList 
                 todos={todos}
-                onToggleTodo={toggleTodoHandler}
-                onEditTodo={editTodoHandler}
-                onDeleteTodo={deleteTodoHandler}
+                onToggleTodo={onToggleTodo}
+                onEditTodo={onEditTodo}
+                onDeleteTodo={onDeleteTodo}
               />
             </div>
         </div>

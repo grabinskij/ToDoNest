@@ -4,46 +4,46 @@ import formatDate from "./utils/formatDate";
 import {v4 as uuidv4} from 'uuid'
 
 const AppContainer = () => {
-    const [todos, setTodos] = useState([]);
-    const [archive, setArchive] = useState([]);
-console.log(archive)
-    const addTodoHandler = (text) => {
-        const timestamp = formatDate(new Date());
+//     const [todos, setTodos] = useState([]);
+//     const [archive, setArchive] = useState([]);
+// console.log(archive)
+    // const addTodoHandler = (text) => {
+    //     const timestamp = formatDate(new Date());
 
-        const newTodo = {
-            timestamp,
-            text,
-            isCompleted: false,
-            isEdited: false,
-            id: uuidv4(),
-        }
-        setTodos(currentTodos => [...currentTodos, newTodo])
-    }
+    //     const newTodo = {
+    //         timestamp,
+    //         text,
+    //         isCompleted: false,
+    //         isEdited: false,
+    //         id: uuidv4(),
+    //     }
+    //     setTodos(currentTodos => [...currentTodos, newTodo])
+    // }
 
-    const deleteTodoHandler = (id) => {
-        setTodos(currentTodos => currentTodos.filter(todo => todo.id !== id))
-    }
+    // const deleteTodoHandler = (id) => {
+    //     setTodos(currentTodos => currentTodos.filter(todo => todo.id !== id))
+    // }
 
-    const toggleTodoHandler = (id) => {
-        setTodos(currentTodos => (
-            currentTodos.map((todo) => (
-                todo.id === id
-                    ? {...todo, isCompleted: !todo.isCompleted}
-                    : {...todo}
-            ))
-        ))
-    }
+    // const toggleTodoHandler = (id) => {
+    //     setTodos(currentTodos => (
+    //         currentTodos.map((todo) => (
+    //             todo.id === id
+    //                 ? {...todo, isCompleted: !todo.isCompleted}
+    //                 : {...todo}
+    //         ))
+    //     ))
+    // }
 
 
-    const editTodoHandler = (id) => {
-        setTodos(currentTodos => (
-            currentTodos.map((todo) => (
-                todo.id === id
-                    ? {...todo, isEdited: !todo.isEdited}
-                    : {...todo}
-            ))
-        ))
-    }
+    // const editTodoHandler = (id) => {
+    //     setTodos(currentTodos => (
+    //         currentTodos.map((todo) => (
+    //             todo.id === id
+    //                 ? {...todo, isEdited: !todo.isEdited}
+    //                 : {...todo}
+    //         ))
+    //     ))
+    // }
 
 
     const addEditTodoHandler = (updatedTodo) => {

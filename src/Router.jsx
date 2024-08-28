@@ -1,23 +1,9 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
-import Archive from './pages/Archive/Archive';
+// import Archive from './pages/Archive/Archive';
 
-const Router = (
-    {
-        todos,
-        onAddTodo,
-        onAddEditTodo,
-        onResetTodos,
-        onDeleteCompletedTodos,
-        completedTodos,
-        onToggleTodo,
-        onEditTodo,
-        onDeleteTodo,
-        archive,
-        setArchive,
-    }
-) => {
+const Router = () => {
     const router = createBrowserRouter([
         {
             path: '/',
@@ -25,31 +11,31 @@ const Router = (
                 <>
                     {/*<NavBar />*/}
                     <App
-                        todos={todos}
-                        onAddTodo={onAddTodo}
-                        onDeleteTodo={onDeleteTodo}
-                        onAddEditTodo={onAddEditTodo}
-                        onResetTodos={onResetTodos}
-                        onDeleteCompletedTodos={onDeleteCompletedTodos}
-                        completedTodos={completedTodos}
-                        onToggleTodo={onToggleTodo}
-                        onEditTodo={onEditTodo}
+                        // todos={todos}
+                        // onAddTodo={onAddTodo}
+                        // onDeleteTodo={onDeleteTodo}
+                        // onAddEditTodo={onAddEditTodo}
+                        // onResetTodos={onResetTodos}
+                        // onDeleteCompletedTodos={onDeleteCompletedTodos}
+                        // completedTodos={completedTodos}
+                        // onToggleTodo={onToggleTodo}
+                        // onEditTodo={onEditTodo}
                     />
                 </>
             ),
         },
-        {
-            path: '/archive',
-            element: (
-                <>
-                    {/*<NavBar />*/}
-                    <Archive
-                        archive={archive}
-                        setArchive={setArchive}
-                    />
-                </>
-            ),
-        },
+        // {
+        //     path: '/archive',
+        //     element: (
+        //         <>
+        //             {/*<NavBar />*/}
+        //             <Archive
+        //                 archive={archive}
+        //                 setArchive={setArchive}
+        //             />
+        //         </>
+        //     ),
+        // },
     ]);
 
     return <RouterProvider router={router} />;

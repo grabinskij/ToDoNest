@@ -1,8 +1,12 @@
 import React from 'react'
 import { RiDeleteBin5Line, RiCheckFill, RiTodoFill, RiEdit2Fill } from 'react-icons/ri'
+import { useDispatch } from 'react-redux';
+import { deleteSingleTodo, setTodoCompletionStatus, editTodo } from '../../../redux/slices/todosSlice';
 import styles from './Todo.module.css'
 
-const Todo = ({todo, onToggleTodo, onEditTodo, onDeleteTodo}) => {
+const Todo = ({ todo }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className={`${styles.todoContainer} ${todo.isCompleted ? styles.completedTodo : ''}`}>
     <div className={styles.timestamp}>{todo.timestamp}</div>
@@ -10,15 +14,15 @@ const Todo = ({todo, onToggleTodo, onEditTodo, onDeleteTodo}) => {
     <div className={styles.todoText}>{todo.text}</div>
     <RiCheckFill
         className={styles.todoCompleted}
-        onClick={() => onToggleTodo(todo.id)}
+        onClick={() => dispatch(setTodoCompletionStatus(todo.id))}
     />
     <RiEdit2Fill
         className={styles.todoEdit}
-        onClick={() => onEditTodo(todo.id)}
+        onClick={() => dispatch(editTodo(todo.id))}
     />
     <RiDeleteBin5Line
         className={styles.todoDelete}
-        onClick={() => onDeleteTodo(todo.id)}
+        onClick={() => dispatch(deleteSingleTodo(todo.id))}
     />
 </div>
   )

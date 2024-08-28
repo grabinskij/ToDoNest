@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import Button from '../../../UI/Button/Button';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './TodoForm.module.css'
+import { setTodos, selectTodos } from '../../../redux/slices/todosSlice';
+import createTodoWithId from '../../../utils/createTodoWithId';
 
-const TodoForm = ({todos, onAddTodo, onAddEditTodo}) => {
+const TodoForm = ({onAddEditTodo}) => {
+
 const [text, setText] = useState('');
 const [editTodoMode, setEditTodoMode] = useState(false)
 const [currentTodoId, setCurrentTodoId] = useState(null)
+const todos = useSelector(selectTodos);
+const dispatch = useDispatch();
+
 
 useEffect(() => {
     const editedTodo = todos.find(todo => todo.isEdited)
@@ -30,7 +37,7 @@ const handleSubmit = (e) => {
             })
             setEditTodoMode(false)
         } else {
-            onAddTodo(text)
+            dispatch(setTodos(createTodoWithId(text))); 
         }
         setText('')
         setCurrentTodoId(null)

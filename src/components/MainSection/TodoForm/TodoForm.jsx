@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Button from '../../../UI/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './TodoForm.module.css'
-import { setTodos, selectTodos } from '../../../redux/slices/todosSlice';
+import { setTodos, selectTodos, addEditedTodo } from '../../../redux/slices/todosSlice';
 import createTodoWithId from '../../../utils/createTodoWithId';
 
-const TodoForm = ({onAddEditTodo}) => {
+const TodoForm = () => {
 
 const [text, setText] = useState('');
 const [editTodoMode, setEditTodoMode] = useState(false)
@@ -31,10 +31,10 @@ const handleSubmit = (e) => {
     e.preventDefault()
     if(text.trim().length) {
         if(editTodoMode) {
-            onAddEditTodo({
+            dispatch(addEditedTodo({
                 id: currentTodoId,
                 text
-            })
+            }))
             setEditTodoMode(false)
         } else {
             dispatch(setTodos(createTodoWithId(text))); 

@@ -1,15 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-interface Archive {
-    id: number;
-    text: string;
-    isCompleted: boolean;
-    isEdited: boolean;
-  }
-
-interface ArchiveState {
-    archive: Archive[];
-  }
+import { ArchiveState,
+  //  ArchivedTodo 
+  } from '../../types/types'; 
   
 
 const initialState: ArchiveState = {

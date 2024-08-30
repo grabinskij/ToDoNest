@@ -1,13 +1,12 @@
-import React from 'react'
-import styles from './Button.module.css'
+import { FC } from 'react';
+import { ButtonProps } from '../../types/types';
+import styles from './Button.module.css';
 
-const Button = (props) => {
 
-const {children, disabled = false} = props
-
+const Button:FC<ButtonProps> = ({ children, disabled = false, ...rest }) => {
   return (
     <button 
-        {...props}
+        {...rest}
         className={styles.button}
         disabled={disabled}
     >

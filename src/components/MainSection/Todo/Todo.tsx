@@ -1,11 +1,13 @@
-import React from 'react'
+import { FC } from 'react';
+import { AppDispatch } from '../../../redux/store';
+import { TodoProps } from '../../../types/types';
 import { RiDeleteBin5Line, RiCheckFill, RiTodoFill, RiEdit2Fill } from 'react-icons/ri'
 import { useDispatch } from 'react-redux';
 import { deleteSingleTodo, setTodoCompletionStatus, editTodo } from '../../../redux/slices/todosSlice';
 import styles from './Todo.module.css'
 
-const Todo = ({ todo }) => {
-  const dispatch = useDispatch();
+const Todo:FC<TodoProps> = ({ todo }) => {
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <div className={`${styles.todoContainer} ${todo.isCompleted ? styles.completedTodo : ''}`}>

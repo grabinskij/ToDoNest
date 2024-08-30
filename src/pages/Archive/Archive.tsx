@@ -1,21 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
+import { ArchiveProps } from '../../types/types';
 
-interface Todo {
-    id: string;
-    text: string;
-}
 
-interface ArchiveItem {
-    todo: Todo;
-    timestamp: string; // or Date 
-}
-
-interface ArchiveProps {
-    archive: ArchiveItem[];
-}
-
-const Archive: React.FC<ArchiveProps> = ({archive}) => {
-    console.log(archive)
+const Archive: FC <ArchiveProps>= ({archive}) => {
+    
     return (
         <div>
         <h1>Archive</h1>

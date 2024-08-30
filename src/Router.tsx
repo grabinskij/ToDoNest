@@ -1,31 +1,35 @@
-import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { FC } from 'react';
+import { createBrowserRouter, RouterProvider, RouteObject } from 'react-router-dom';
 import App from './App';
 // import Archive from './pages/Archive/Archive';
 
-const Router = () => {
-    const router = createBrowserRouter([
-        {
-            path: '/',
-            element: (
-                <>
-                    {/*<NavBar />*/}
-                    <App/>
-                </>
-            ),
-        },
-        // {
-        //     path: '/archive',
-        //     element: (
-        //         <>
-        //             {/*<NavBar />*/}
-        //             <Archive />
-        //         </>
-        //     ),
-        // },
-    ]);
+const routes: RouteObject[] = [
+  {
+    path: '/',
+    element: (
+      <>
+        {/* <NavBar /> */}
+        <App />
+      </>
+    ),
+  },
+//   {
+//     path: '/archive',
+//     element: (
+//       <>
+//         {/* <NavBar /> */}
+//         <Archive />
+//       </>
+//     ),
+//   },
 
-    return <RouterProvider router={router} />;
+];
+
+const router = createBrowserRouter(routes);
+
+const Router: FC = () => {
+  return <RouterProvider router={router} />;
 };
 
 export default Router;
+

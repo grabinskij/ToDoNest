@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
+import { FC } from 'react';
+import { RootState, AppDispatch } from '../../../redux/store';
 import Button from '../../../UI/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './TodoForm.module.css'
 import { setTodos, selectTodos, addEditedTodo } from '../../../redux/slices/todosSlice';
 import createTodoWithId from '../../../utils/createTodoWithId';
 
-const TodoForm = () => {
+const TodoForm: FC = () => {
 
-const [text, setText] = useState('');
-const [editTodoMode, setEditTodoMode] = useState(false)
-const [currentTodoId, setCurrentTodoId] = useState(null)
-const todos = useSelector(selectTodos);
-const dispatch = useDispatch();
+const [text, setText] = useState<string>('');
+const [editTodoMode, setEditTodoMode] = useState<boolean>(false)
+const [currentTodoId, setCurrentTodoId] = useState<string | null>(null)
+const todos = useSelector((state: RootState) => selectTodos(state));
+const dispatch = useDispatch<AppDispatch>();
 
 
 useEffect(() => {
@@ -27,15 +29,19 @@ useEffect(() => {
     }
 }, [todos])
 
-const handleSubmit = (e) => {
+const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
     if(text.trim().length) {
         if(editTodoMode) {
-            dispatch(addEditedTodo({
-                id: currentTodoId,
-                text
-            }))
-            setEditTodoMode(false)
+            if (currentTodoId !== null) {
+                dispatch(addEditedTodo({
+                  id: currentTodoId,
+                  text
+                }));
+                setEditTodoMode(false);
+              } else {
+                console.error("Cannot edit todo: currentTodoId is null");
+              }
         } else {
             dispatch(setTodos(createTodoWithId(text))); 
         }

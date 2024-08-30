@@ -1,7 +1,7 @@
-import React from 'react'
+import { FC } from 'react';
 import styles from './Header.module.css'
 
-const Header = () => {
+const Header:FC = () => {
   return (
     <div className={styles.container}>
         <img src="/logo.png" className={styles.logo} alt="logo" />

@@ -1,6 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
+interface Todo {
+  id: number;
+  text: string;
+  isCompleted: boolean;
+  isEdited: boolean;
+}
+
+interface TodosState {
+  todos: Todo[];
+}
+
+const initialState: TodosState = {
     todos: [],
 };
 
@@ -8,34 +19,34 @@ const todosSlice = createSlice({
     name: 'todos',
     initialState,
     reducers: {
-      setTodos: (state, action) => {
+      setTodos: (state: TodosState, action: PayloadAction<Todo>) => {
         state.todos.push(action.payload);
       },
-      deleteSingleTodo: (state, action) => {
+      deleteSingleTodo: (state: TodosState, action: PayloadAction<number>) => {
         state.todos = state.todos.filter(todo => todo.id !== action.payload);
       },
-      setTodoCompletionStatus: (state, action) => {
+      setTodoCompletionStatus: (state: TodosState, action: PayloadAction<number>) => {
         state.todos = state.todos.map((todo) => (
             todo.id === action.payload
                 ? {...todo, isCompleted: !todo.isCompleted}
                 : {...todo}
         ))
       },
-      editTodo: (state, action) => {
+      editTodo: (state: TodosState, action: PayloadAction<number>) => {
         state.todos = state.todos.map((todo) => (
             todo.id === action.payload
             ? {...todo, isEdited: !todo.isEdited}
             : {...todo}
         ))
       },
-      addEditedTodo: (state, action) => {
+      addEditedTodo: (state: TodosState, action: PayloadAction<{ id: number; text: string }>) => {
         state.todos = state.todos.map((todo) => (
           todo.id === action.payload.id
               ? { ...todo, text: action.payload.text, isEdited: false }
               : todo
         ))
       },
-      resetTodos: (state) => {
+      resetTodos: (state: TodosState) => {
         const timestamp = new Date();
         const archiveItems = state.todos.map((todo) => ({
           todo,
@@ -45,7 +56,7 @@ const todosSlice = createSlice({
       // setArchive((prevArchive) => [...prevArchive, ...archiveItems]);
       state.todos = []
       },
-      deleteCompletedTodos: (state) => {
+      deleteCompletedTodos: (state: TodosState) => {
         state.todos = state.todos.filter((todo) => !todo.isCompleted)
       }
     },
@@ -62,6 +73,6 @@ export const {
     deleteCompletedTodos
 } = todosSlice.actions;
 
-export const selectTodos = (state) => state.todos.todos;
+export const selectTodos = (state: { todos: TodosState }) => state.todos.todos;
 
 export default todosSlice.reducer;

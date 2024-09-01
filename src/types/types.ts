@@ -13,19 +13,14 @@ export interface Todo {
   export interface TodosState {
     todos: Todo[];
   }
-  
 
   export interface ArchivedTodo {
     todo: Todo;
-    timestamp: Date;
-    key: number;
+    archiveTimestamp: string;
+    key: string;
   }
   
   export interface ArchiveState {
-    archive: ArchivedTodo[];
-  }
-  
-  export interface ArchiveProps {
     archive: ArchivedTodo[];
   }
 

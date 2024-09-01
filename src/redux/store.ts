@@ -1,12 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import todosSlice from './slices/todosSlice';
-import archiveSlice from './slices/archiveSlice';
+import todosReducer from './slices/todosSlice';
+import archiveReducer from './slices/archiveSlice';
+
 
 
 const store = configureStore({
     reducer: {
-        todos: todosSlice,
-        archive: archiveSlice
+        todos: todosReducer,
+        archive: archiveReducer
     },
 });
 

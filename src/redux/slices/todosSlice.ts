@@ -1,13 +1,30 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TodosState,
-   Todo,
-    // ArchivedTodo 
-  } from '../../types/types';
-
+import { createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { TodosState, Todo } from '../../types/types';
+import { RootState } from '../store';
+// import { AppDispatch, RootState } from '../../redux/store';
 
 const initialState: TodosState = {
     todos: [],
 };
+
+// export const archiveAndResetTodos = createAsyncThunk<void, void, { dispatch: AppDispatch, state: RootState }>(
+//   'todos/archiveAndReset',
+//   async (_, { dispatch, getState }) => {
+//       const state = getState();
+//       const todos = state.todos.todos;
+
+//       const archiveTimestamp = new Date().toISOString();
+//       const archiveItems: ArchivedTodo[] = todos.map(todo => ({
+//           todo,
+//           archiveTimestamp,
+//           key: todo.id,
+//       }));
+
+//       dispatch(addToArchive(archiveItems));
+//       dispatch(resetTodos());
+//   }
+// );
+
 
 const todosSlice = createSlice({
     name: 'todos',
@@ -41,14 +58,7 @@ const todosSlice = createSlice({
         ))
       },
       resetTodos: (state: TodosState) => {
-        // const timestamp = new Date();
-      //   const archiveItems: ArchivedTodo[] = state.todos.map((todo) => ({
-      //     todo,
-      //     timestamp,
-      //     key: todo.id
-      // }));
-      // setArchive((prevArchive) => [...prevArchive, ...archiveItems]);
-      state.todos = []
+        state.todos = [];
       },
       deleteCompletedTodos: (state: TodosState) => {
         state.todos = state.todos.filter((todo) => !todo.isCompleted)
@@ -67,6 +77,7 @@ export const {
     deleteCompletedTodos
 } = todosSlice.actions;
 
-export const selectTodos = (state: { todos: TodosState }) => state.todos.todos;
+export const selectTodos = (state: RootState) => state.todos.todos;
+
 
 export default todosSlice.reducer;

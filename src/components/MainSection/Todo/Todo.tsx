@@ -23,7 +23,7 @@ const Todo:FC<TodoProps> = ({ todo }) => {
     <div className={`${styles.todoContainer} ${todo.isCompleted ? styles.completedTodo : ''}`}>
     <div className={styles.timestamp}>{todo.timestamp}</div>
     <RiTodoFill className={styles.todoIcon}/>
-    <div className={styles.todoText}>{todo.text}</div>
+    <div className={styles.todoText}>{todo.title}</div>
     <RiCheckFill
         className={styles.todoCompleted}
         onClick={() => dispatch(setTodoCompletionStatus(todo.id))}

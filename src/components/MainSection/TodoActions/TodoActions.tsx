@@ -35,6 +35,7 @@ const TodoActions: FC = () => {
         <div className={styles.container}>
         <Button
             onClick={handleResetAndArchiving}
+            disabled={!todos.length}
         >
           <RiDeleteBin2Line />
         </Button>

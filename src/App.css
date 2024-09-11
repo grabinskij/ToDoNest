@@ -4,3 +4,8 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.actions-container {
+  display: flex;
+  gap: 16px;
+}

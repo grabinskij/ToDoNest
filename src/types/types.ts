@@ -1,7 +1,10 @@
 export interface Todo {
     id: string;
     timestamp: string;
-    text: string;
+    title: string; 
+    dueDate?: string; 
+    time?: string; 
+    note?: string; 
     isCompleted: boolean;
     isEdited: boolean;
   }
@@ -13,6 +16,20 @@ export interface Todo {
   export interface TodosState {
     todos: Todo[];
   }
+
+  export interface TodoInput {
+    title: string;
+    dueDate?: string;
+    note?: string;
+}
+
+export interface TodoEditInput {
+    id: string;
+    title: string;
+    dueDate?: string;
+    time?: string;
+    note?: string;
+}
 
   export interface ArchivedTodo {
     todo: Todo;

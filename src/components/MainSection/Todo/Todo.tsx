@@ -34,7 +34,7 @@ const Todo:FC<TodoProps> = ({ todo }) => {
     />
     <RiDeleteBin5Line
         className={styles.todoDelete}
-        onClick={() => dispatch(deleteSingleTodoAndArchive(todo.id))}
+        onClick={() => deleteSingleTodoAndArchive(todo.id)}
     />
 </div>
   )

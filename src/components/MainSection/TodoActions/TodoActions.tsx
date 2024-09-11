@@ -7,24 +7,28 @@ import { RootState, AppDispatch } from '../../../redux/store';
 import { ArchivedTodo } from '../../../types/types'; 
 import { deleteCompletedTodos, selectTodos, resetTodos} from '../../../redux/slices/todosSlice';
 import { addToArchive } from '../../../redux/slices/archiveSlice';
+import { createArchiveItems } from '../../../utils/createArchiveItems';
 
 
 
 const TodoActions: FC = () => {
   const todos = useSelector((state: RootState) => selectTodos(state));
   const dispatch = useDispatch<AppDispatch>();
-  const completedTodos = todos.filter((todo) => todo.isCompleted).length
+  const completedTodos = todos.filter((todo) => todo.isCompleted)
 
 
   const handleResetAndArchiving = () => {
     const archiveTimestamp = new Date().toISOString();
-    const archiveItems: ArchivedTodo[] = todos.map((todo) => ({
-      todo,
-      archiveTimestamp,
-      key: todo.id
-    }));
-    dispatch(addToArchive(archiveItems))
-    dispatch(resetTodos())
+    const archiveItems: ArchivedTodo[] = createArchiveItems(todos, archiveTimestamp);
+    dispatch(addToArchive(archiveItems));
+    dispatch(resetTodos());
+  }
+
+  const handleResetCompletedTodosAndArchiving = () => {
+    const archiveTimestamp = new Date().toISOString();
+    const archiveItems: ArchivedTodo[] = createArchiveItems(completedTodos, archiveTimestamp);
+    dispatch(addToArchive(archiveItems));
+    dispatch(deleteCompletedTodos());
   }
 
     return (
@@ -35,8 +39,8 @@ const TodoActions: FC = () => {
           <RiDeleteBin2Line />
         </Button>
         <Button
-            onClick={() => dispatch(deleteCompletedTodos())}
-            disabled={!completedTodos}
+            onClick={handleResetCompletedTodosAndArchiving}
+            disabled={!completedTodos.length}
         >
           <RiRefreshLine />
         </Button>

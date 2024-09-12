@@ -12,12 +12,15 @@ const TodoList = () => {
       {todos.length === 0 ? (
         <h2>Todo list is empty</h2>
       ) : (
-        todos.map((todo) => (
-          <Todo 
-            key={todo.id}
-            todo={todo}
-          />
-        ))
+        <>
+          <h2>Todo list:</h2>
+          {todos.map((todo) => (
+            <Todo 
+              key={todo.id}
+              todo={todo}
+            />
+          ))}
+        </>
       )}
     </div>
   );
